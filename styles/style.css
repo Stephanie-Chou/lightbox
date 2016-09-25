@@ -54,3 +54,69 @@ h1, h2, a, p, .thumbnail-detail {
   opacity: 0.3;
   cursor: pointer;
 }
+
+/*Light Box*/
+
+#lightbox {
+  display: none;
+    box-shadow: 0px 0px 10px gray;
+    border-radius: 5px;
+  width: 45%;
+  height: 400px;
+  background-color: #f4f4f4;
+  position: fixed;
+  margin: 0 auto;
+  opacity: 1;
+  vertical-align: middle;
+  z-index: 100;
+
+  /*center a fixed div*/
+  left: 50%;
+  transform: translateX(-50%);
+  top:25%;
+}
+
+#mask {
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity:0.8;
+  position:fixed;
+  top:0;
+  left: 0;
+  z-index:10
+}
+
+#lightbox-image{
+  display: block;
+  margin: 40px auto;
+}
+
+.col {
+  width: 30%;
+}
+
+.center {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.arrow {
+    vertical-align: middle;
+    top: 80%;
+    position: fixed;
+    z-index: 100;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#leftArrow {
+  display: none;
+  left: 35%;
+}
+
+#rightArrow {
+  display: none;
+  right: 35%;
+}

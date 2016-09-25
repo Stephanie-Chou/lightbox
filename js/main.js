@@ -50,7 +50,41 @@ function loadPhotos() {
   }
 }
 
+// Events
+function onClickThumbnail(e) {
+  var mask = document.getElementById("mask");
+  var lightbox = document.getElementById("lightbox");
+
+  var photo = document.createElement("img");
+  photo.setAttribute("id", "lightbox-image");
+  photo.src =  getImgSrc(photos[this.id])
+
+  mask.style.display="block";
+  lightbox.style.display="block";
+
+  lightbox.appendChild(photo);
+}
+
+function onClickNext () {
+    console.log("click>")
+}
+
+function onClickPrev () {
+  console.log("<click")
+}
+
+function onClose() {
+  mask.style.display="none";
+  lightbox.style.display="none";
+
+  var el = document.getElementById("lightbox-image");
+  el.parentNode.removeChild(el);
+}
+
 // helper functions
+document.getElementById("close").addEventListener('click', onClose);
+
+
 function createThumbnailElement(item, id) {
   var thumbnail = document.createElement("DIV");
   thumbnail.className="thumbnail";
