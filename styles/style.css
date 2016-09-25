@@ -1,0 +1,56 @@
+/*Fonts*/
+h1, h2, a, p, .thumbnail-detail {
+  font-family: 'Lato', sans-serif;
+}
+
+.thumbnail-detail {
+  max-width: 100%;
+  word-wrap: normal;
+  margin: 10px;
+}
+
+/*This is not getting applied when dynamically adding elements to the dom. very odd... maybe has something to do with :after? */
+#album {
+ display: -webkit-flex;
+ display: flex;
+ -webkit-flex-direction: row/* works with row or column */
+ flex-direction: row;
+ -webkit-align-items: center;
+ align-items: center;
+ -webkit-justify-content: center;
+ justify-content: center;
+}
+
+/*Thumbnails*/
+
+.thumbnail {
+  background-color: white;
+  box-shadow: 0px 0px 10px gray;
+  border-radius: 5px;
+  margin: 24px;
+  padding: 20px;
+  vertical-align: top;
+  display: block;
+  *display: inline; /* for IE */
+  zoom: 1;
+
+  text-align: center;
+
+  /*transition*/
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.thumbnail img {
+  display: block;
+  margin: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+.thumbnail:hover {
+  opacity: 0.3;
+  cursor: pointer;
+}
