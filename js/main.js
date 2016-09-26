@@ -13,7 +13,7 @@ var rightArrow = document.getElementById("rightArrow");
 // functions
 function getPhotos(user_id, photoset_id, callback)
 {
-  var url = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" + api_key + "&format=json&nojsoncallback=1&user_id=" + user_id + "&photoset_id=" + photoset_id;
+  var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&format=json&nojsoncallback=1&user_id=" + user_id + "&photoset_id=" + photoset_id;
 
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
@@ -25,14 +25,17 @@ function getPhotos(user_id, photoset_id, callback)
 }
 
 function getPhotos_success(response) {
-  photos = JSON.parse(response).photoset.photo
+  photos = JSON.parse(response).photos.photo
   loadPhotos();
 }
 
 function loadPhotos() {
-  var col1 = document.getElementById("col1");
-  var col2 = document.getElementById("col2");
-  var col3 = document.getElementById("col3");
+  // var col1 = document.getElementById("col1");
+  // var col2 = document.getElementById("col2");
+  // var col3 = document.getElementById("col3");
+  // var col4 = document.getElementById("col4");
+
+  var album = document.getElementById("album");
 
   var thumbnail;
 
@@ -40,18 +43,22 @@ function loadPhotos() {
     var item=photos[i];
     thumbnail = createThumbnailElement(item, i);
 
+album.appendChild(thumbnail);
 
-    switch(i%3) {
-      case 0:
-      col1.appendChild(thumbnail);
-      break;
-      case 1:
-      col2.appendChild(thumbnail);
-      break;
-      case 2:
-      col3.appendChild(thumbnail);
-      break;
-    }
+    // switch(i%4) {
+    //   case 0:
+    //   col1.appendChild(thumbnail);
+    //   break;
+    //   case 1:
+    //   col2.appendChild(thumbnail);
+    //   break;
+    //   case 2:
+    //   col3.appendChild(thumbnail);
+    //   break;
+    //   case 3:
+    //   col4.appendChild(thumbnail);
+    //   break;
+    // }
   }
 }
 
@@ -94,15 +101,19 @@ rightArrow.addEventListener('click', onClickNext);
 
 function createThumbnailElement(item, id) {
   var thumbnail = document.createElement("DIV");
-  thumbnail.className="thumbnail";
+  var thumbnailContent = document.createElement("DIV");
+  thumbnail.className = "thumbnail";
+  thumbnailContent.className = "thumbnailContent";
   var img = createImgElement(item);
   var detail = createThumbnailDetailElement(item);
 
   thumbnail.id = id;
   thumbnail.addEventListener('click', onClickThumbnail)
 
-  thumbnail.appendChild(img);
-  thumbnail.appendChild(detail);
+  thumbnailContent.appendChild(img);
+  thumbnailContent.appendChild(detail);
+
+  thumbnail.appendChild(thumbnailContent);
 
   return thumbnail;
 }
