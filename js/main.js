@@ -12,6 +12,7 @@ var mask = document.getElementById("mask");
 var lightbox = document.getElementById("lightbox");
 var leftArrow = document.getElementById("leftArrow");
 var rightArrow = document.getElementById("rightArrow");
+var close = document.getElementById("close");
 
 var album = new Album();
 
@@ -22,7 +23,8 @@ function init() {
 }
 
 function setupEventListeners() {
-  document.getElementById("close").addEventListener('click', onClose);
+  close.addEventListener('click', onClose);
+
   leftArrow.addEventListener('click', onClickPrev);
   rightArrow.addEventListener('click', onClickNext);
 }

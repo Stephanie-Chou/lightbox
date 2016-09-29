@@ -6,7 +6,6 @@ h1, h2, a, p, .thumbnail-detail {
 }
 
 #album {
-  /*columns*/
   margin: 0px 120px;
   line-height: 0;
 
@@ -29,30 +28,42 @@ h1, h2, a, p, .thumbnail-detail {
   box-shadow: 0 1px 12px -2px #865889;
 }
 
+.topbar h1 {
+  text-align: left;
+  font-size: 60px;
+  color: #865889;
+  display: inline-block;
+  margin-left: 120px;
+}
+
+.topbar img {
+  height: 100px;
+  display: inline-block;
+  vertical-align: center;
+  top: 10px;
+  position:fixed;
+}
+
 /****************
 Thumbnails
 *****************/
 
 .thumbnail {
-/*  position: absolute;
-*/
-background-color: white;
-box-shadow: 0px 0px 10px #090909;
-/*border: 1px solid #f4f4f4;*/
-border-radius: 5px;
-margin: 24px;
-padding: 10px;
-/*vertical-align: top;*/
-*display: inline; /* for IE */
-zoom: 1;
+  background-color: white;
+  box-shadow: 0px 0px 10px #090909;
+  border-radius: 5px;
+  margin: 24px;
+  padding: 10px;
+  *display: inline; /* for IE */
+  zoom: 1;
 
-text-align: left;
+  text-align: left;
 
-/*transition*/
-opacity: 1;
-transition: opacity .25s ease-in-out;
--moz-transition: opacity .25s ease-in-out;
--webkit-transition: opacity .25s ease-in-out;
+  /*transition*/
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
 
 .thumbnail:hover {
@@ -126,6 +137,11 @@ Light Box
   margin: 20px;
 }
 
+.arrow img {
+  height: 100px;
+  width: 40px;
+}
+
 #leftArrow {
   display: none;
   left:50px;
@@ -134,4 +150,13 @@ Light Box
 #rightArrow {
   display: none;
   right: 50px;
+}
+
+#close {
+  float:right;
+  color: white;
+  cursor:pointer;
+  margin-right: 30px;
+  font-size: 30px;
+  top: 0px;
 }
