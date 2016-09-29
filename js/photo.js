@@ -1,7 +1,6 @@
 /*******************************
  Photo
  *******************************/
-
 function Photo(info) {
   this.info = info;
   this.src = "";

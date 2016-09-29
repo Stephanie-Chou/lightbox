@@ -5,11 +5,9 @@ h1, h2, a, p, .thumbnail-detail {
   font-family: 'Lato', sans-serif;
 }
 
-
 #album {
   /*columns*/
-  max-width: 1024em;
-  margin: 0px auto;
+  margin: 0px 120px;
   line-height: 0;
 
   -webkit-column-count: 4;

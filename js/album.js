@@ -6,7 +6,7 @@ function Album() {
   this.el = "";
 }
 
-function getPhotos(user_id, photoset_id, callback) {
+Album.prototype.getPhotos = function(user_id, photoset_id, callback) {
   var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="
   + API_KEY
   + "&format=json&nojsoncallback=1&user_id="
@@ -23,7 +23,9 @@ function getPhotos(user_id, photoset_id, callback) {
   xmlHttp.send(null);
 }
 
-function loadPhotos(photos) {
+Album.prototype.loadPhotos = function(photos) {
+  var container = document.createElement("DIV");
+
   album.el = document.getElementById("album");
   var photo;
   var thumbnail;
@@ -32,15 +34,16 @@ function loadPhotos(photos) {
     var item=photos[i];
     photo = new Photo(item);
 
-    album.photos.push(photo);
+    this.photos.push(photo);
 
     // build thumbnails
 
     thumbnail = new Thumbnail(photo, i)
     thumbnail.renderThumbnailElement();
 
-    album.el.appendChild(thumbnail.el);
+    container.appendChild(thumbnail.el)
   }
+    album.el.appendChild(container);
 }
 
 function getPhotos_success(response) {
@@ -50,6 +53,6 @@ function getPhotos_success(response) {
       alert(res.message);
       return;
     } else {
-      loadPhotos(res.photos.photo);
+      album.loadPhotos(res.photos.photo);
     }
 }

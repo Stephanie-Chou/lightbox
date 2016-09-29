@@ -17,7 +17,7 @@ var album = new Album();
 
 // functions
 function init() {
-  getPhotos(USER_ID, PHOTOSET_ID, getPhotos_success);
+  album.getPhotos(USER_ID, PHOTOSET_ID, getPhotos_success);
   setupEventListeners();
 }
 
